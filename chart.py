@@ -103,7 +103,7 @@ def plot(df, start=None, end=None, **kwargs):
     if params['volume']:
         height = int(params['height'] - params['height'] * params['volume_height'])
     pp = figure(width=params['width'], 
-                plot_height=height,
+                height=height,
                 x_range=(-1, min(120, len(df))),
                 y_range=(df.Low.min(), df.High.max()),
                 title=params['title'],
@@ -139,7 +139,7 @@ def plot(df, start=None, end=None, **kwargs):
         dec = df.Volume.diff() < 0
 
         height = int(params['height'] * params['volume_height'])
-        pv = figure(width=params['width'], plot_height=height, x_range = pp.x_range)
+        pv = figure(width=params['width'], height=height, x_range = pp.x_range)
 
         pv.vbar(x[inc], 0.8, df.Volume[inc], fill_color=params['color_volume_up'], line_color="black")
         pv.vbar(x[dec], 0.8, df.Volume[dec], fill_color=params['color_volume_down'], line_color="black")
